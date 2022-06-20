@@ -1,0 +1,14 @@
+Steps to create a Basic table using React-table Library:
+---------------------------------------------------------
+
+Step 1: Get the data you want to display.
+
+Step 2: Define the columns for your table.
+
+Step 3: Use the data and columns defined to create a a table instance using react-table.
+
+Step 4: Define a basic table structure using plain HTML.
+
+Step 5: Use the table instance created in step 3 to bring life to HTML table defined in step 4.
+
+Step 6: Include the desired CSS.
