@@ -7,19 +7,22 @@ export const COLUMNS = [
     Footer: 'Id',
     accessor: 'id',
     // Filter: ColumnFilter,
-    disableFilters: true
+    disableFilters: true,
+    sticky: 'left'
   },
   {
     Header: 'First Name',
     Footer: 'First Name',
     accessor: 'first_name',
-    // Filter: ColumnFilter
+    // Filter: ColumnFilter,
+    sticky: 'left'
   },
   {
     Header: 'Last Name',
     Footer: 'Last Name',
     accessor: 'last_name',
-    // Filter: ColumnFilter
+    // Filter: ColumnFilter,
+    sticky: 'left'
   },
   {
     Header: 'Date Of Birth',
@@ -40,17 +43,17 @@ export const COLUMNS = [
     accessor: 'phone',
     // Filter: ColumnFilter
   },
-  // {
-  //   Header: 'Email',
-  //   Footer: 'Email',
-  //   accessor: 'email'
-  // },
-  // {
-  //   Header: 'Age',
-  //   Footer: 'Age',
-  //   accessor: 'age',
-  //   Filter: ColumnFilter
-  // }
+  {
+    Header: 'Email',
+    Footer: 'Email',
+    accessor: 'email'
+  },
+  {
+    Header: 'Age',
+    Footer: 'Age',
+    accessor: 'age',
+    Filter: ColumnFilter
+  }
 ]
 
 export const GROUPED_COLUMNS = [

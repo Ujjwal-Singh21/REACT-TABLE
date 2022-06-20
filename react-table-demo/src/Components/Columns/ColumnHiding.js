@@ -1,41 +1,21 @@
+// destructuring allColumns, getToggleHideAllColumnProps() function from the table instance 
 import { useMemo } from 'react'
-import { useTable, useRowSelect } from 'react-table'
-import MOCK_DATA from '../MOCK_DATA.json'
+import { useTable, useColumnOrder } from 'react-table'
 import { COLUMNS } from '../columns'
+import MOCK_DATA from '../MOCK_DATA.json'
+import { Checkbox } from '../SelectingRows/Checkbox'
 import '../table.css'
-import { Checkbox } from './Checkbox'
 
-export const RowSelection = () => {
+export const ColumnHiding = () => {
 
   const columns = useMemo(() => COLUMNS, [])
   const data = useMemo(() => MOCK_DATA, [])
 
-  // adding useRowSelect hook as 2nd arg to useTable hook
   const tableInstance = useTable({
     columns: columns,
     data: data
-  }, 
-  useRowSelect,
-  (hooks) => { 
-    hooks.visibleColumns.push((columns) => {
+  }, useColumnOrder)
 
-      return [
-        {
-          id: 'selection',
-          Header: ({ getToggleAllRowsSelectedProps }) => (
-            <Checkbox {...getToggleAllRowsSelectedProps()}/>
-          ),
-          Cell: ({ row }) => (
-            <Checkbox {...row.getToggleRowSelectedProps()}/>
-          )
-        },
-        ...columns
-      ]
-    })
-  }
-  )
-
-  // destructuring and adding selectedFlatRows from table instance
   const {
     getTableProps,
     getTableBodyProps,
@@ -43,13 +23,28 @@ export const RowSelection = () => {
     footerGroups,
     rows,
     prepareRow,
-    selectedFlatRows
+    allColumns,
+    getToggleHideAllColumnsProps
   } = tableInstance
-
-  const firstPageRows = rows.slice(0, 10)
 
   return (
     <>
+    <div>
+        <div>
+            <Checkbox {...getToggleHideAllColumnsProps()}/> Toogle All
+        </div>
+        {
+            allColumns.map((column) => (
+                <div key={column.id}>
+                   <label>
+                      <input type='checkbox' {...column.getToggleHiddenProps()} />
+                       {column.Header}
+                   </label>
+                </div>
+            ))
+        }
+    </div>
+
     <table {...getTableProps()}>
 
       <thead>
@@ -63,12 +58,12 @@ export const RowSelection = () => {
           } 
         </tr>
         ))
-      }   
+      }
       </thead>
 
       <tbody {...getTableBodyProps()}>
        {
-         firstPageRows.map((row) => {
+         rows.map((row) => {
             prepareRow(row)
             return (
               <tr {...row.getRowProps()}>
@@ -96,23 +91,9 @@ export const RowSelection = () => {
            ))
          }
       </tfoot>
-      
+
     </table>
 
-    <pre>
-      <code>
-        {
-          JSON.stringify(
-            {
-              selectedFlatRows: selectedFlatRows.map((row) => row.original),
-            },
-            null,
-            2
-          )
-        }
-      </code>
-    </pre>
-    
     </>
   )
 }

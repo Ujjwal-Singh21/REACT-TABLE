@@ -8,6 +8,9 @@ import { GoToPaginationTable } from "./Components/Pagination/GoToPaginationTable
 import { PageSizePaginationTable } from "./Components/Pagination/PageSizePaginationTable";
 import { PaginationTable } from "./Components/Pagination/PaginationTable";
 import { SortingTable } from "./Components/Sorting/SortingTable";
+import { ColumnOrder } from "./Components/Columns/ColumnOrder";
+import { ColumnHiding } from "./Components/Columns/ColumnHiding";
+import { StickyTable } from "./Components/StickyTable/StickyTable";
 
 function App() {
   return (
@@ -21,7 +24,10 @@ function App() {
       {/* <PaginationTable /> */}
       {/* <GoToPaginationTable /> */}
       {/* <PageSizePaginationTable /> */}
-      <RowSelection />
+      {/* <RowSelection /> */}
+      {/* <ColumnOrder /> */}
+      {/* <ColumnHiding /> */}
+      <StickyTable />
     </div>
   );
 }
