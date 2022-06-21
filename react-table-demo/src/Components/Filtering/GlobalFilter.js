@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useAsyncDebounce } from 'react-table'
 
 // With debounce:
 //---------------
 export const GlobalFilter = ({ filter, setFilter }) => {
+
   const [value, setValue] = useState(filter)
 
-  const onChange = useAsyncDebounce((value) => {
+  const onChangeFn = useAsyncDebounce((value) => {
     setFilter(value || undefined)
   }, 2000)
 
@@ -17,7 +18,7 @@ export const GlobalFilter = ({ filter, setFilter }) => {
         value={value || ''}
         onChange={(e) => {
           setValue(e.target.value)
-          onChange(e.target.value)
+          onChangeFn(e.target.value)
         }}
       />
     </span>
@@ -30,7 +31,7 @@ export const GlobalFilter = ({ filter, setFilter }) => {
 //   return (
 //     <span>
 //       Search: {' '}
-//       <input value={filter || ''} onChange={e => setFilter(e.target.value)} />
+//       <input value={filter || ''} onChange={(e) => setFilter(e.target.value)} />
 //     </span>
 //   )
 // }

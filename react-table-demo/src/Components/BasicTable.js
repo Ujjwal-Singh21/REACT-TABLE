@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useTable } from 'react-table'
-import MOCK_DATA from './MOCK_DATA.json'
 import { COLUMNS } from './columns'
+import MOCK_DATA from './MOCK_DATA.json'
 import './table.css'
 
 export const BasicTable = () => {
@@ -23,6 +23,9 @@ export const BasicTable = () => {
     prepareRow
   } = tableInstance
 
+  // console.log(headerGroups)
+  // console.log(rows)
+
   return (
     <table {...getTableProps()}>
       <thead>
@@ -36,9 +39,9 @@ export const BasicTable = () => {
           } 
         </tr>
         ))
-      }
-       
+      }   
       </thead>
+
       <tbody {...getTableBodyProps()}>
        {
          rows.map((row) => {

@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useTable } from 'react-table'
-import MOCK_DATA from './MOCK_DATA.json'
 import { GROUPED_COLUMNS } from './columns'
+import MOCK_DATA from './MOCK_DATA.json'
 import './table.css'
 
 export const HeaderGroupsTable = () => {
@@ -18,7 +18,6 @@ export const HeaderGroupsTable = () => {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    footerGroups,
     rows,
     prepareRow
   } = tableInstance
@@ -37,8 +36,8 @@ export const HeaderGroupsTable = () => {
         </tr>
         ))
       }
-       
       </thead>
+
       <tbody {...getTableBodyProps()}>
        {
          rows.map((row) => {
@@ -55,20 +54,7 @@ export const HeaderGroupsTable = () => {
          })
        } 
       </tbody>
-
-      <tfoot>
-         {
-           footerGroups.map((footerGroup) => (
-             <tr {...footerGroup.getHeaderGroupProps()}>
-               {
-                  footerGroup.headers.map((column) => (
-                     <td {...column.getFooterProps}> {column.render('Footer')} </td>
-                  ))
-               }
-             </tr>
-           ))
-         }
-      </tfoot>
+      
     </table>
   )
 }

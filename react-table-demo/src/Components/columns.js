@@ -7,7 +7,7 @@ export const COLUMNS = [
     Footer: 'Id',
     accessor: 'id',
     // Filter: ColumnFilter,
-    disableFilters: true,
+    disableFilters: true, // to remove filter input field from Id Column
     sticky: 'left'
   },
   {
@@ -46,16 +46,18 @@ export const COLUMNS = [
   {
     Header: 'Email',
     Footer: 'Email',
-    accessor: 'email'
+    accessor: 'email',
+    // Filter: ColumnFilter
   },
   {
     Header: 'Age',
     Footer: 'Age',
     accessor: 'age',
-    Filter: ColumnFilter
+    // Filter: ColumnFilter
   }
 ]
 
+ // We use columns property which is an array to group headers together
 export const GROUPED_COLUMNS = [
   {
     Header: 'Id',
@@ -79,7 +81,6 @@ export const GROUPED_COLUMNS = [
       }
     ]
   },
-
   {
     Header: 'Info',
     Footer: 'Info',

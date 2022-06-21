@@ -14,8 +14,8 @@ import { StickyTable } from "./Components/StickyTable/StickyTable";
 
 function App() {
   return (
-    // <div className="App">
-    <div>
+    <div className="App">
+     {/* <div> */}
       {/* <BasicTable /> */}
       {/* <HeaderGroupsTable /> */}
       {/* <SortingTable /> */}
@@ -23,11 +23,11 @@ function App() {
       {/* <FilteringTableTwo /> */}
       {/* <PaginationTable /> */}
       {/* <GoToPaginationTable /> */}
-      {/* <PageSizePaginationTable /> */}
+      <PageSizePaginationTable />
       {/* <RowSelection /> */}
       {/* <ColumnOrder /> */}
       {/* <ColumnHiding /> */}
-      <StickyTable />
+      {/* <StickyTable /> */}
     </div>
   );
 }

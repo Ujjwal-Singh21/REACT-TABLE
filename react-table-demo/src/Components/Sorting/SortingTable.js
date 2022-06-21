@@ -1,7 +1,8 @@
+// we use useSortBy() hook and getSortByToggleProps() fn from react-table library for sorting purpose.
 import { useMemo } from 'react'
 import { useTable, useSortBy } from 'react-table'
-import MOCK_DATA from '../MOCK_DATA.json'
 import { COLUMNS } from '../columns'
+import MOCK_DATA from '../MOCK_DATA.json'
 import '../table.css'
 
 export const SortingTable = () => {
@@ -25,6 +26,7 @@ export const SortingTable = () => {
 
   return (
     <table {...getTableProps()}>
+
       <thead>
       {
         headerGroups.map((headerGroup) => (
@@ -35,15 +37,15 @@ export const SortingTable = () => {
                  {column.render('Header')} 
                  <span>
                     {column.isSorted ? column.isSortedDesc ? ' 🔽' : ' 🔼' : ''}
-                  </span>
+                 </span>
               </th>
             ))
           } 
         </tr>
         ))
-      }
-       
+      }    
       </thead>
+
       <tbody {...getTableBodyProps()}>
        {
          rows.map((row) => {

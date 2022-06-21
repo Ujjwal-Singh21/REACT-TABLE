@@ -1,7 +1,8 @@
+// importing usePagination Hook from 'react-table' for pagination purpose
 import { useMemo } from 'react'
 import { useTable, usePagination } from 'react-table'
-import MOCK_DATA from '../MOCK_DATA.json'
 import { COLUMNS } from '../columns'
+import MOCK_DATA from '../MOCK_DATA.json'
 import '../table.css'
 
 export const PaginationTable = () => {
@@ -20,6 +21,7 @@ export const PaginationTable = () => {
     getTableProps,
     getTableBodyProps,
     headerGroups,
+    prepareRow,
     page,
     nextPage,
     previousPage,
@@ -27,10 +29,11 @@ export const PaginationTable = () => {
     canPreviousPage,
     state,
     pageOptions,
-    prepareRow
   } = tableInstance
 
   const { pageIndex } = state
+
+  // console.log(page)
 
   return (
     <>
@@ -75,6 +78,7 @@ export const PaginationTable = () => {
         <button onClick={() => previousPage()} disabled={!canPreviousPage}> Previous page </button>
         <button onClick={() => nextPage()} disabled={!canNextPage}> Next page </button>
     </div>
+
     </>
   )
 }

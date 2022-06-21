@@ -1,3 +1,5 @@
+// import useGlobalFilter hook for global filtering and useFilters for column level filtering purpose
+// rendering columns level Filter input field conditionally in <thead> tag
 import { useMemo } from 'react'
 import { useTable, useGlobalFilter, useFilters } from 'react-table'
 import { COLUMNS } from '../columns'
@@ -10,6 +12,8 @@ export const FilteringTableTwo = () => {
 
   const columns = useMemo(() => COLUMNS, [])
   const data = useMemo(() => MOCK_DATA, [])
+
+  // specifying a common Filter Column which is common to all columns
   const defaultColumn = useMemo(() => {
     return {
       Filter: ColumnFilter, 
@@ -28,7 +32,6 @@ export const FilteringTableTwo = () => {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    footerGroups,
     rows,
     prepareRow,
     state,

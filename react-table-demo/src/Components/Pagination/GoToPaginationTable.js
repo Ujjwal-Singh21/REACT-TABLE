@@ -16,14 +16,14 @@ export const GoToPaginationTable = () => {
     initialState: {
         pageIndex: 5
     }
-  },
-  usePagination)
+  }, usePagination)
 
-  // added gotoPage, pageCount,
+  // added -> gotoPage, pageCount
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
+    prepareRow,
     page,
     nextPage,
     previousPage,
@@ -31,9 +31,8 @@ export const GoToPaginationTable = () => {
     canPreviousPage,
     state,
     pageOptions,
-    gotoPage,
-    pageCount,
-    prepareRow
+    gotoPage, // works with index num so always pass with minus 1
+    pageCount
   } = tableInstance
 
   const { pageIndex } = state
@@ -52,9 +51,9 @@ export const GoToPaginationTable = () => {
           } 
         </tr>
         ))
-      }
-       
+      }  
       </thead>
+
       <tbody {...getTableBodyProps()}>
        {
          page.map((row) => {
@@ -94,6 +93,7 @@ export const GoToPaginationTable = () => {
         <button onClick={() => nextPage()} disabled={!canNextPage}> Next page </button>
 
         <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}> {'>>'} </button>
+
     </div>
     </>
   )

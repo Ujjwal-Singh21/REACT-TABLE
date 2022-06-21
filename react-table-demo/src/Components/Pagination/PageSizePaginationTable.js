@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useTable, usePagination } from 'react-table'
-import MOCK_DATA from '../MOCK_DATA.json'
 import { COLUMNS } from '../columns'
+import MOCK_DATA from '../MOCK_DATA.json'
 import '../table.css'
 
 export const PageSizePaginationTable = () => {
@@ -15,14 +15,14 @@ export const PageSizePaginationTable = () => {
     initialState: {
         pageIndex: 2
     }
-  },
-  usePagination)
+  }, usePagination)
 
   // added setPageSize function
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
+    prepareRow,
     page,
     nextPage,
     previousPage,
@@ -32,7 +32,6 @@ export const PageSizePaginationTable = () => {
     pageOptions,
     gotoPage,
     pageCount,
-    prepareRow,
     setPageSize,
   } = tableInstance
 
